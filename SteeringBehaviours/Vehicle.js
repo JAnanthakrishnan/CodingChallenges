@@ -1,15 +1,16 @@
 class Vehicle {
-  constructor(p) {
+  constructor(p,col) {
     this.pos = createVector(random(width), random(height));
     this.vel = p5.Vector.random2D();
     this.acc = createVector();
     this.target = createVector(p.x, p.y);
     this.r = 8;
-    this.maxSpeed = 5;
-    this.maxForce = 0.3;
+    this.maxSpeed = 10;
+    this.maxForce = 1;
+    this.col = col;
   }
   render() {
-    stroke(255);
+    stroke(this.col);
     strokeWeight(this.r);
     fill(255);
     point(this.pos.x, this.pos.y);
@@ -21,9 +22,11 @@ class Vehicle {
   }
   behaviours() {
     let arrive = this.arrive(this.target);
-    this.applyForce(arrive);
     let mouse = createVector(mouseX, mouseY);
     let flee = this.flee(mouse);
+    arrive.mult(1);
+    flee.mult(4);
+    this.applyForce(arrive);
     this.applyForce(flee);
   }
   applyForce(force) {
