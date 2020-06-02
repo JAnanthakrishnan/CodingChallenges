@@ -18,13 +18,12 @@ class Rocket {
     if (d < 10) {
       this.completed = true;
       this.fitness *= 5;
-      //   this.pos = target.copy();
     }
     if (
-      this.pos.x > rx &&
+      (this.pos.x > rx &&
       this.pos.x < rx + rw &&
       this.pos.y > ry &&
-      this.pos.y < ry + rh
+      this.pos.y < ry + rh)||this.pos.y<0
     ) {
       this.crashed = true;
       this.fitness /= 5;
@@ -34,8 +33,7 @@ class Rocket {
       this.pos.add(this.vel);
       this.vel.add(this.acc);
       this.acc.mult(0);
-      this.vel.limit(4)
-      //this.count++;
+      this.vel.limit(4);
     }
   }
   show() {
@@ -51,6 +49,6 @@ class Rocket {
   calcFitness() {
     let d = dist(this.pos.x, this.pos.y, target.x, target.y);
     this.fitness = 1 / d;
-    this.fitness = pow(this.fitness,5);
+    this.fitness = pow(this.fitness, 2);
   }
 }

@@ -6,7 +6,6 @@ class DNA {
       this.genes = [];
       for (let i = 0; i < lifespan; i++) {
         this.genes[i] = p5.Vector.random2D();
-       // this.genes[i].setMag(0.1);
       }
     }
   }
@@ -19,12 +18,11 @@ class DNA {
     }
     return new DNA(newGenes);
   }
-  mutate(){
-      for(let i = 0;i<this.genes.length;i++){
-          if(random(1)<0.01){
-              this.genes[i] = p5.Vector.random2D();
-              //this.genes[i].setMag(0.1);
-          }
+  mutate() {
+    for (let i = 0; i < this.genes.length; i++) {
+      if (random(1) < 0.01) {
+        this.genes[i] = p5.Vector.random2D();
       }
+    }
   }
 }

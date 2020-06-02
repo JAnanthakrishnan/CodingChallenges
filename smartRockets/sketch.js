@@ -1,5 +1,5 @@
 let p;
-let lifespan = 200;
+let lifespan = 300;
 let lifeP;
 let target;
 let count = 0;
@@ -27,7 +27,7 @@ function draw() {
   p.run();
   lifeP.html(count);
   count++;
-  if (count > 200) {
+  if (count > lifespan) {
     count = 0;
     p.evaluate();
     p.selection();
