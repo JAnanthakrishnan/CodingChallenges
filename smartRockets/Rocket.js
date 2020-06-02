@@ -50,6 +50,6 @@ class Rocket {
   calcFitness() {
     let d = dist(this.pos.x, this.pos.y, target.x, target.y);
     this.fitness = 1 / d;
-    this.fitness = pow(this.fitness, 5);
+    this.fitness = pow(this.fitness, 2);
   }
 }
