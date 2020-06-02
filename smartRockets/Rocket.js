@@ -21,9 +21,10 @@ class Rocket {
     }
     if (
       (this.pos.x > rx &&
-      this.pos.x < rx + rw &&
-      this.pos.y > ry &&
-      this.pos.y < ry + rh)||this.pos.y<0
+        this.pos.x < rx + rw &&
+        this.pos.y > ry &&
+        this.pos.y < ry + rh) ||
+      this.pos.y < 0
     ) {
       this.crashed = true;
       this.fitness /= 5;
@@ -49,6 +50,6 @@ class Rocket {
   calcFitness() {
     let d = dist(this.pos.x, this.pos.y, target.x, target.y);
     this.fitness = 1 / d;
-    this.fitness = pow(this.fitness, 2);
+    this.fitness = pow(this.fitness, 5);
   }
 }
