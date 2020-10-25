@@ -4,8 +4,8 @@ let j = 0;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < floor(width / 10); i++) {
-   // values[i] = noise(i / 100.0) * height;
-    values[i] = random(height)
+    // values[i] = noise(i / 100.0) * height;
+    values[i] = random(height);
   }
 }
 // function bubbleSort(arr) {
@@ -22,18 +22,7 @@ function setup() {
 // }
 function draw() {
   background(0);
-  // for (let j = 0; j < values.length - i - 1; j++) {
-  //   if (values[j] > values[j + 1]) {
-  //     let temp = values[j];
-  //     values[j] = values[j + 1];
-  //     values[j + 1] = temp;
-  //   }
-  // }
-  // i++;
-  // if (i === values.length) {
-  //   console.log("sorting over");
-  //   noLoop();
-  // }
+
   if (values[j] > values[j + 1]) {
     temp = values[j];
     values[j] = values[j + 1];
@@ -46,7 +35,7 @@ function draw() {
       i++;
     }
   } else {
-    console.log("Sorting over");
+    console.log('Sorting over');
     noLoop();
   }
 
@@ -57,8 +46,8 @@ function draw() {
     if (p === j) {
       fill(255, 0, 0);
     }
-    if(p>values.length-1-i){
-      fill(0,255,0)
+    if (p > values.length - 1 - i) {
+      fill(0, 255, 0);
     }
     rect(d, height - values[p], 10, values[p]);
     //rect(d,20,10,100)
